@@ -106,13 +106,15 @@ function App() {
 
   // Place order
 const handlePlaceOrder = async () => {
-  try {
-    if (!formData || !formData.firstName || !formData.lastName || !formData.address) {
-      alert('Please fill in all form fields before placing the order.');
-      return;
-    }
+  const validationErrors = validateForm();
 
-    
+  if (Object.keys(validationErrors).length > 0) {
+    setErrors(validationErrors);
+    alert('Please fix the errors in the form before placing the order.');
+    return;
+  }
+
+  try {    
     const orderPayload = {
       firstName: formData.firstName,
       lastName: formData.lastName,

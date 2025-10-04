@@ -41,7 +41,7 @@ function CartPage({
     <div className="page-container">
       <h2 className="page-title">Shopping Cart</h2>
 
-      // empty cart
+    {/*  empty cart */}
       {cart.length === 0 ? (
         <div className="empty-cart">
           <div className="empty-cart-icon">🛒</div>
@@ -55,7 +55,7 @@ function CartPage({
         </div>
       ) : (
         <div className="cart-content">
-          {/* Cart Items Section */}
+          
           <div className="cart-items-section">
             <h3 className="section-title">Items in Cart</h3>
             <div className="cart-items">
@@ -68,7 +68,7 @@ function CartPage({
                   />
                   <div className="cart-item-details">
                     <h4 className="cart-item-name">{item.name}</h4>
-                    <p className="cart-item-price">${item.price}</p>
+                    <p className="cart-item-price">{item.price}</p>
                   </div>
                   <div className="quantity-controls">
                     <button 
@@ -99,7 +99,7 @@ function CartPage({
               ))}
             </div>
             
-            // total price
+            {/* total price */}
             <div className="cart-total">
               <span className="total-label">Total:</span>
               <span className="total-amount">{calculateTotal()}</span>
